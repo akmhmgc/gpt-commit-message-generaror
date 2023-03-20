@@ -31,3 +31,41 @@ $ ./generate_commit_message.py
 3. 表示されたコミットメッセージを使用して、通常通りgit commitコマンドを実行してください。
 
 これで、GPT-3によって生成された適切なコミットメッセージを使用して、コミットが行われます。スクリプトは何度でも実行できますので、コミットメッセージの生成が必要な度にお使いいただけます。
+
+# bashなどのエイリアスとして登録する方法
+
+1. スクリプト（`generate_commit_message.py`）を適当な場所に置きます。例えば、ホームディレクトリの直下にscriptsディレクトリを作成して、そこにスクリプトを置くことができます。
+
+```sh
+mkdir -p ~/scripts
+mv generate_commit_message.py ~/scripts/
+```
+
+2. エイリアスを設定するために、`.bashrc`ファイル（bashの場合）または.`zshrc`ファイル（zshの場合）を編集します。エディタを使って該当のファイルを開いてください。例えば、`nano`を使って編集する場合は以下のようになります。
+
+```sh
+nano ~/.bashrc  # bashの場合
+# または
+nano ~/.zshrc   # zshの場合
+```
+
+3. 設定ファイルの最後に、以下の行を追加します。`/path/to/your/scripts`は、スクリプトを置いたディレクトリのパスに置き換えてください。
+
+```sh
+alias generate_commit_message="/path/to/your/scripts/generate_commit_message.py"
+```
+
+例:
+```sh
+alias generate_commit_message="$HOME/scripts/generate_commit_message.py"
+```
+
+4. 設定ファイルを保存し、閉じます。
+
+5. 変更を反映させるために、以下のコマンドを実行して、設定ファイルを再読み込みします。
+
+```sh
+source ~/.bashrc  # bashの場合
+# または
+source ~/.zshrc   # zshの場合
+```
